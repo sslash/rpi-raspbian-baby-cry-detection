@@ -1,7 +1,7 @@
 FROM resin/rpi-raspbian
 
 RUN apt-get update
-RUN apt-get install -y python python-pip alsa-utils build-essential
+RUN apt-get install -y python3 idle3 python-pip alsa-utils build-essential
 RUN apt-get install python-dev
 RUN pip install numpy 
 RUN apt-get install -y libblas-dev
