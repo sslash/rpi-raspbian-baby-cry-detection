@@ -1,33 +1,33 @@
 FROM resin/rpi-raspbian
+FROM python:3.7
 
 RUN apt-get update
-RUN apt-get install -y python3 idle3 python-pip alsa-utils build-essential
-RUN apt-get install python-dev
-RUN pip install numpy 
-RUN apt-get install -y libblas-dev
-RUN apt-get install -y liblapack-dev
-RUN apt-get install -y gfortran
-RUN pip install librosa
-RUN pip install pandas
-RUN pip install sklearn
+
+RUN apt-get install -y alsa-utils build-essential
+RUN apt-get install -y libblas-dev liblapack-dev gfortran build-essential llvm python3-pip python3-scipy
+RUN pip3 install llvmlite==0.28.0
+RUN pip3 install numpy
+RUN pip3 install numba==0.42.1
+RUN pip3 install librosa==0.6.1
+RUN pip3 install pandas
+RUN pip3 install sklearn
 RUN echo "deb http://ftp.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/backports.list
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553
-RUN apt-get update
 RUN apt-get install -y python-dill
 #RUN pip install pickle
-RUN pip install simplejson
+RUN pip3 install simplejson
 
-RUN pip install pydub
+RUN pip3 install pydub
 #RUN apt-get install python-numpy python-librosa
-RUN apt-get install -y libav-tools libavcodec-extra-56
+RUN apt-get install -y ffmpeg
 
 ADD http://ftp.osuosl.org/pub/blfs/conglomeration/alsa-utils/alsa-utils-1.1.3.tar.bz2 /alsa/alsa-utils-1.1.3.tar.bz2
 #ADD ftp://ftp.alsa-project.org/pub/utils/alsa-utils-1.1.3.tar.bz2 /alsa/alsa.tar.bz2
 WORKDIR /alsa
 RUN tar xvjf alsa-utils-1.1.3.tar.bz2
 WORKDIR /alsa/alsa-utils-1.1.3
-RUN apt-get -y install libncursesw5-dev libasound2-dev 
+RUN apt-get -y install libncursesw5-dev libasound2-dev
 RUN ./configure --disable-alsaconf --disable-bat --disable-xmlto --with-curses=ncursesw
 RUN make
 RUN make install
