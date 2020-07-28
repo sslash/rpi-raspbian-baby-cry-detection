@@ -19,12 +19,12 @@ This should generate two files:
 Stay in the container until we have done the `docker cp` commands below (so the container is kept alive)
 
 ## Prepare prediction steps:
-`cd /opt`
-Clone this repo: https://github.com/giulbia/baby_cry_rpi
-`cd baby_cry_rpi` 
-change the Dockerfile with the one in this repo called Dockerfile_rmi 
-Build that dockerfile: `docker build --tag kidcry:1.1`
-change `script/run.sh` to use the newly built docker image
+`cd /opt`   
+Clone this repo: https://github.com/giulbia/baby_cry_rpi    
+`cd baby_cry_rpi`     
+change the Dockerfile with the one in this repo called Dockerfile_rmi     
+Build that dockerfile: `docker build --tag kidcry:1.1`    
+change `script/run.sh` to use the newly built docker image    
 
 
 Now put the generated files from above into this repo:  
