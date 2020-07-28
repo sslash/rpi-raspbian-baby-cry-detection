@@ -17,8 +17,9 @@ This should generate two files:
 `output/model/model.pkl` and `baby_cry_detection/dist/baby_cry_detection-1.1-py3.7.egg`  
 
 ## Prepare prediction steps:
-`mkdir /opt/baby_cry_rpi`
-`cd /opt/baby_cry_rpi`
+`cd /opt`
+Clone this repo: https://github.com/giulbia/baby_cry_rpi
+`cd baby_cry_rpi` 
 
 Now put the generated files from above into this repo:  
 `docker cp <container-id>:/alsa/alsa-utils-1.1.3/baby_cry_detection/dist/baby_cry_detection-1.1-py3.7.egg /opt/baby_cry_rpi/lib`  
