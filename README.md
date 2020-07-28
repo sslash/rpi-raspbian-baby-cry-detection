@@ -16,6 +16,8 @@ python baby_cry_detection/pc_main/train_model.py
 This should generate two files: 
 `output/model/model.pkl` and `baby_cry_detection/dist/baby_cry_detection-1.1-py3.7.egg`  
 
+Stay in the container until we have done the `docker cp` commands below (so the container is kept alive)
+
 ## Prepare prediction steps:
 `cd /opt`
 Clone this repo: https://github.com/giulbia/baby_cry_rpi
